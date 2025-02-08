@@ -14,50 +14,50 @@ const TypeWriter = ({ text, delay = 80, className = '' }) => {
 
       return () => clearTimeout(timeout);
     } else {
-      // Add a small delay before setting isComplete to true for smoother transition
       setTimeout(() => {
         setIsComplete(true);
       }, 500);
     }
   }, [currentIndex, delay, text]);
 
+  const cursorStyle = {
+    display: 'inline-block',
+    width: '2px',
+    height: '32px',
+    marginLeft: '4px',
+    backgroundColor: '#2563eb',
+    transition: 'opacity 0.5s ease-in-out',
+    opacity: isComplete ? 0 : 1,
+    animation: !isComplete ? 'cursorBlink 1s step-end infinite' : 'none',
+    verticalAlign: 'middle'
+  };
+
+  const containerStyle = {
+    display: 'inline-block'
+  };
+
+  const textStyle = {
+    transition: 'all 0.2s ease-in-out'
+  };
+
   return (
-    <div className="inline-block">
-      <span className={`${className} transition-all duration-200 ease-in-out`}>
+    <div style={containerStyle}>
+      <span style={{...textStyle}} className={className}>
         {currentText}
       </span>
-      <span 
-        className={`
-          inline-block 
-          w-0.5 
-          h-8 
-          ml-1 
-          bg-blue-600 
-          transition-opacity 
-          duration-500 
-          ease-in-out
-          ${isComplete ? 'opacity-0' : 'animate-cursor'}
+      <span style={cursorStyle}></span>
+      <style>
+        {`
+          @keyframes cursorBlink {
+            from, to {
+              opacity: 1;
+            }
+            50% {
+              opacity: 0;
+            }
+          }
         `}
-        style={{
-          animation: !isComplete ? 'cursorBlink 1s step-end infinite' : 'none',
-          verticalAlign: 'middle'
-        }}
-      >
-      </span>
-      <style jsx>{`
-        @keyframes cursorBlink {
-          from, to {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0;
-          }
-        }
-
-        .animate-cursor {
-          animation: cursorBlink 1s step-end infinite;
-        }
-      `}</style>
+      </style>
     </div>
   );
 };
