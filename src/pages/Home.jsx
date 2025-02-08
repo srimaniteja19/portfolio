@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-import TypeWriter from '../components/Typewriter';
+// import TypeWriter from '../components/Typewriter';
 import profileImage from '../assets/profile.jpg';
 import backend from '../assets/backend.png';
 import frontend from '../assets/frontend.png';
@@ -16,11 +16,7 @@ function Home() {
         <div className="hero-content">
           <div className="hero-text">
             <h1>
-              <TypeWriter 
-                text="Sri Maniteja" 
-                delay={150}
-                className="gradient-text"
-              />
+                Sri Maniteja
             </h1>
             <h2>Software Engineer</h2>
             <p className="hero-description">
