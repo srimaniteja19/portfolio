@@ -10,9 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "canvas-confetti": "^1.9.3",
+    "framer-motion": "^12.4.1",
+    "lucide-react": "^0.475.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.5",
+    "roughjs": "^4.6.6",
     "three": "^0.157.0"
   },
   "devDependencies": {

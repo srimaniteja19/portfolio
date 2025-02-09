@@ -1,4 +1,5 @@
 import React from 'react';
+import confetti from 'canvas-confetti';
 import './Home.css';
 // import TypeWriter from '../components/Typewriter';
 import profileImage from '../assets/profile.jpg';
@@ -9,15 +10,39 @@ import ecom from '../assets/ecommerce.png';
 import task from '../assets/tasks.png';
 
 function Home() {
+  const handleConfetti = () => {
+    const duration = 2 * 1000; // Duration of the confetti effect
+    const end = Date.now() + duration;
+
+    (function frame() {
+      // Launch confetti every 100ms
+      confetti({
+        particleCount: 5,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+      });
+      confetti({
+        particleCount: 5,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    })();
+  };
+
   return (
     <div className="home-container">
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
           <div className="hero-text">
-            <h1>
-                Sri Maniteja
-            </h1>
+          {/* onMouseEnter={handleConfetti} */}
+            <h1>Sri Maniteja</h1>
             <h2>Software Engineer</h2>
             <p className="hero-description">
               Passionate about building scalable web applications and solving complex problems through innovative solutions.

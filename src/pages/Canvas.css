@@ -1,0 +1,339 @@
+.main-container {
+    padding: 20px;
+    background-color: #f0f4f8;
+    min-height: 100vh;
+  }
+  
+  .canvas-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .canvas-h1 {
+    text-align: center;
+    color: #1a365d;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+  }
+  
+  /* Notes Section */
+  .notes-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .title-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.2s ease;
+  }
+  
+  .title-input:focus {
+    outline: none;
+    border-color: #4299e1;
+  }
+  
+  .notes-input {
+    width: 100%;
+    height: 150px;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: vertical;
+    transition: border-color 0.2s ease;
+  }
+  
+  .notes-input:focus {
+    outline: none;
+    border-color: #4299e1;
+  }
+  
+  .save-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background-color: #4299e1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .save-btn:hover {
+    background-color: #3182ce;
+  }
+  
+  /* Saved Notes */
+  .saved-notes {
+    background-color: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .saved-notes h2 {
+    color: #1a365d;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+  }
+  
+  .notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+  
+  .notes-list::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .notes-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  .notes-list::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 4px;
+  }
+  
+  .note-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .note-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .note-header h3 {
+    margin: 0;
+    color: #2d3748;
+    font-size: 1.25rem;
+  }
+  
+  .delete-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    background: none;
+    border: none;
+    color: #e53e3e;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .delete-btn:hover {
+    background-color: #fed7d7;
+  }
+  
+  .note-card p {
+    color: #4a5568;
+    margin: 10px 0;
+    line-height: 1.5;
+  }
+  
+  .note-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 4px;
+    margin: 10px 0;
+    background-color: #f7fafc;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .note-date {
+    display: block;
+    font-size: 0.875rem;
+    color: #718096;
+    margin-top: 10px;
+  }
+  
+  .empty-message {
+    text-align: center;
+    color: #718096;
+    padding: 40px 0;
+    font-size: 1.1rem;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 640px) {
+    .main-container {
+      padding: 10px;
+    }
+  
+    .canvas-container {
+      padding: 15px;
+    }
+  
+    .tools-panel {
+      gap: 10px;
+      padding: 10px;
+    }
+  
+    .tool-btn {
+      width: 35px;
+      height: 35px;
+    }
+  
+    .size-slider {
+      width: 80px;
+    }
+  
+    .canvas-h1 {
+      font-size: 2rem;
+    }
+  } Tools Panel */
+  .tools-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .tool-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .tool-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    color: #4a5568;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .tool-btn:hover {
+    background-color: #edf2f7;
+  }
+  
+  .tool-btn.active {
+    background-color: #4299e1;
+    color: white;
+    transform: scale(1.05);
+  }
+  
+  .tool-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .clear-btn {
+    color: #e53e3e;
+  }
+  
+  .download-btn {
+    color: #38a169;
+  }
+  
+  /* Color and Size Controls */
+  .color-picker {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .size-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .size-slider {
+    width: 120px;
+    height: 6px;
+    -webkit-appearance: none;
+    background: #e2e8f0;
+    border-radius: 3px;
+    outline: none;
+  }
+  
+  .size-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #4299e1;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .size-value {
+    font-size: 14px;
+    color: #4a5568;
+    min-width: 40px;
+  }
+  
+  /* Canvas */
+  .canvas-wrapper {
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  canvas {
+    width: 100%;
+    background-color: white;
+    cursor: crosshair;
+  }
+  
+  /* Notes Grid */
+  .notes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  
+  @media (max-width: 768px) {
+    .notes-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /*

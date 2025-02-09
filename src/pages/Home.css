@@ -24,11 +24,13 @@
   }
   
   .hero-text h1 {
+    font-family: 'Dancing Script', cursive;
     font-size: 5rem;
     font-weight: 700;
     color: #1a1a1a;
     margin-bottom: 1rem;
     line-height: 1.1;
+    text-shadow: 1px 1px 2px rgba(255, 107, 74, 0.3);
   }
   
   .hero-text h2 {
@@ -51,17 +53,22 @@
     flex: 2;
     max-width: 550px;
     position: relative;
-    padding: 20px; 
+    padding: 20px;
 }
 
 .profile-image {
-    width: 500px; 
-    height: 500px; 
-    border-radius: 50%; 
-    box-shadow: 0 20px 25px -5px rgba(255, 107, 74, 0.15);
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    box-shadow: 0 30px 25px -5px rgba(255, 107, 74, 0.15);
     object-fit: cover;
     object-position: center;
-    border: 8px solid rgba(255, 255, 255, 0.8); 
+    border: 8px solid rgba(255, 255, 255, 0.8);
+    transition: transform 0.5s ease;
+}
+
+.profile-image:hover {
+    transform: rotate(360deg);
 }
   
   .hero-cta {
@@ -300,6 +307,15 @@
     .skill-card {
       padding: 2rem;
     }
+
+    .profile-image {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .hero-image {
+        max-width: 450px;
+    }
   }
   
   @media (max-width: 768px) {
@@ -348,6 +364,17 @@
       padding-left: 1rem;
       padding-right: 1rem;
     }
+
+    .profile-image {
+        width: 300px;
+        height: 300px;
+        border-width: 6px;
+    }
+    
+    .hero-image {
+        max-width: 350px;
+        padding: 15px;
+    }
   }
   
   @media (max-width: 480px) {
@@ -366,5 +393,60 @@
     
     .skill-card {
       padding: 1.5rem;
+    }
+
+    .profile-image {
+        width: 250px;
+        height: 250px;
+        border-width: 5px;
+    }
+    
+    .hero-image {
+        max-width: 280px;
+        padding: 10px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .profile-image {
+        width: 200px;
+        height: 200px;
+        border-width: 4px;
+    }
+    
+    .hero-image {
+        width: 100%;
+        max-width: 220px;
+        padding: 8px;
+        margin: 10px auto;
+    }
+
+    .primary-button, .secondary-button {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.875rem;
+    }
+
+    .skill-card h3 {
+        font-size: 1rem;
+    }
+
+    .project-content h3 {
+        font-size: 1rem;
+    }
+
+    .quick-contact p {
+        font-size: 1rem;
     }
   }
