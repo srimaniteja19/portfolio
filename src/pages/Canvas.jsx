@@ -175,7 +175,7 @@ const AdvancedCanvas = () => {
   return (
     <div className="main-container">
       <div className="canvas-container">
-        <h1 class='canvas-h1'>Jot the Notes</h1>
+        <h1 className='canvas-h1'>Jot the Notes</h1>
         
         {/* Tools Panel */}
         <div className="tools-panel">
