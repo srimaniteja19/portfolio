@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import PropTypes from "prop-types";
-import confetti from "canvas-confetti";
 
 function Navbar({ children }) {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);

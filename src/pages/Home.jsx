@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Home.css";
-import TypeWriter from "../components/Typewriter";
+import TypeWriter from "../components/TypeWriter";
 import profileImage from "../assets/profile.jpg";
 import backend from "../assets/backend.png";
 import frontend from "../assets/frontend.png";
