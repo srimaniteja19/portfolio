@@ -1,0 +1,64 @@
+.page-transition {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+.page-transition.loading {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  animation: pulse 2s infinite;
+}
+
+.loader svg {
+  animation: rotate 2s linear infinite;
+}
+
+.loader circle {
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+  stroke: #ff6b4a;
+  transform-origin: center;
+  animation: dash 2s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 150;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -150;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+}
