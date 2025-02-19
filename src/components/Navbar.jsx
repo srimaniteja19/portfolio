@@ -1,121 +1,62 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
-import PropTypes from "prop-types";
+import ThemeToggle from "./ThemeToggle";
 
-function Navbar({ children }) {
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!isMobileMenuOpen);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
-
-  // const handleConfetti = () => {
-  //   const duration = 2 * 1000; // Duration of the confetti effect
-  //   const end = Date.now() + duration;
-
-  //   (function frame() {
-  //     confetti({
-  //       particleCount: 5,
-  //       angle: 60,
-  //       spread: 55,
-  //       origin: { x: 0 },
-  //     });
-  //     confetti({
-  //       particleCount: 5,
-  //       angle: 120,
-  //       spread: 55,
-  //       origin: { x: 1 },
-  //     });
-
-  //     if (Date.now() < end) {
-  //       requestAnimationFrame(frame);
-  //     }
-  //   })();
-  // };
 
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <Link to="/" className="logo">
+        <NavLink to="/" className="logo">
           <span className="logo-text">Sri Maniteja</span>
-        </Link>
+        </NavLink>
       </div>
+
       <div className="navbar-center">
-        <div className="nav-item">
-          <Link to="/" className="nav-link">
-            Home
-          </Link>
-        </div>
-        <div className="nav-item">
-          <Link to="/about" className="nav-link">
-            About
-          </Link>
-        </div>
-        <div className="nav-item">
-          <Link to="/projects" className="nav-link">
-            Projects
-          </Link>
-        </div>
-        <div className="nav-item">
-          <Link to="/experience" className="nav-link">
-            Experience
-          </Link>
-        </div>
-        <div className="nav-item">
-          <Link to="/canvas" className="nav-link">
-            Canvas
-          </Link>
-        </div>
+        <NavLink to="/" className="nav-link">
+          Home
+        </NavLink>
+        <NavLink to="/about" className="nav-link">
+          About
+        </NavLink>
+        <NavLink to="/projects" className="nav-link">
+          Projects
+        </NavLink>
+        <NavLink to="/experience" className="nav-link">
+          Experience
+        </NavLink>
+        <ThemeToggle />
       </div>
-      <div className="theme-toggle-container">{children}</div>
-      {/* Hamburger Menu */}
-      <div className="hamburger" onClick={toggleMobileMenu}>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      {/* Mobile Navigation */}
-      <div className={`mobile-nav ${isMobileMenuOpen ? "open" : ""}`}>
-        <button className="close-button" onClick={toggleMobileMenu}>
-          X
+
+      <button className="hamburger" onClick={toggleMenu}>
+        <i className={`fas fa-${isOpen ? "times" : "bars"}`}></i>
+      </button>
+
+      <div className={`mobile-nav ${isOpen ? "open" : ""}`}>
+        <NavLink to="/" className="nav-link" onClick={toggleMenu}>
+          Home
+        </NavLink>
+        <NavLink to="/about" className="nav-link" onClick={toggleMenu}>
+          About
+        </NavLink>
+        <NavLink to="/projects" className="nav-link" onClick={toggleMenu}>
+          Projects
+        </NavLink>
+        <NavLink to="/experience" className="nav-link" onClick={toggleMenu}>
+          Experience
+        </NavLink>
+        <button className="close-button" onClick={toggleMenu}>
+          <i className="fas fa-times"></i>
         </button>
-        <div className="nav-item">
-          <Link to="/" className="nav-link" onClick={toggleMobileMenu}>
-            Home
-          </Link>
-        </div>
-        <div className="nav-item">
-          <Link to="/about" className="nav-link" onClick={toggleMobileMenu}>
-            About
-          </Link>
-        </div>
-        <div className="nav-item">
-          <Link to="/projects" className="nav-link" onClick={toggleMobileMenu}>
-            Projects
-          </Link>
-        </div>
-        <div className="nav-item">
-          <Link
-            to="/experience"
-            className="nav-link"
-            onClick={toggleMobileMenu}
-          >
-            Experience
-          </Link>
-        </div>
-        <div className="nav-item">
-          <Link to="/canvas" className="nav-link" onClick={toggleMobileMenu}>
-            Canvas
-          </Link>
-        </div>
       </div>
     </nav>
   );
 }
-
-Navbar.propTypes = {
-  children: PropTypes.node,
-};
 
 export default Navbar;
