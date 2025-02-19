@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
 import "./Home.css";
-import TypeWriter from "../components/TypeWriter";
 import profileImage from "../assets/profile.jpg";
 import backend from "../assets/backend.png";
 import frontend from "../assets/frontend.png";
 import database from "../assets/database.png";
 import ecom from "../assets/ecommerce.png";
 import task from "../assets/tasks.png";
+import SplitText from "../components/SplitText";
+import BlurText from "../components/BlurText";
+import TrueFocus from "../components/TrueFocus";
+import FallingText from "../components/FallingText";
+import TiltedCard from "../components/TiltedCard";
 
 function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -55,6 +59,10 @@ function Home() {
     setMousePosition({ x, y });
   };
 
+  const handleAnimationComplete = () => {
+    console.log("Name animation completed!");
+  };
+
   return (
     <div className="home-container">
       <div
@@ -68,22 +76,25 @@ function Home() {
       <section className="hero-section">
         <div className="hero-content">
           <div className="hero-text">
-            <h1 className="name-reveal">
-              <span>S</span>
-              <span>r</span>
-              <span>i</span>
-              <span>&nbsp;</span>
-              <span>M</span>
-              <span>a</span>
-              <span>n</span>
-              <span>i</span>
-              <span>t</span>
-              <span>e</span>
-              <span>j</span>
-              <span>a</span>
+            <h1>
+              <TrueFocus
+                sentence="Sri Maniteja"
+                manualMode={false}
+                blurAmount={5}
+                borderColor="hotpink"
+                animationDuration={1}
+                pauseBetweenAnimations={1}
+              />
             </h1>
             <h2>
-              <TypeWriter text="Software Engineer" delay={100} />
+              <BlurText
+                text="Software Engineer!"
+                delay={150}
+                animateBy="words"
+                direction="top"
+                onAnimationComplete={handleAnimationComplete}
+                className="text-2xl mb-8"
+              />{" "}
             </h2>
             <p className="hero-description fade-in-animation">
               Passionate about building scalable web applications and solving
@@ -98,47 +109,52 @@ function Home() {
               </a>
             </div>
           </div>
-          <div
-            className="hero-image"
-            onMouseMove={handleMouseMove}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => {
-              setIsHovered(false);
-              setMousePosition({ x: 0, y: 0 });
-            }}
-            style={{
-              "--mouse-x": mousePosition.x,
-              "--mouse-y": mousePosition.y,
-              "--shadow-opacity": isHovered ? "1" : "0",
-            }}
-          >
-            <img src={profileImage} alt="Profile" className="profile-image" />
+          <div className="hero-image">
+            <TiltedCard
+              imageSrc={profileImage}
+              altText="Sri Maniteja"
+              captionText="Sri Maniteja"
+              containerHeight="300px"
+              containerWidth="300px"
+              imageHeight="300px"
+              imageWidth="300px"
+              rotateAmplitude={12}
+              scaleOnHover={1.2}
+              showMobileWarning={false}
+              showTooltip={true}
+              displayOverlayContent={true}
+              // overlayContent={
+              //   <p className="tilted-card-demo-text">Sri Maniteja</p>
+              // }
+            />
           </div>
         </div>
       </section>
 
       {/* Featured Skills Section */}
       <section className="skills-section reveal-on-scroll">
-        <h2>Core Technologies</h2>
+        <h2>Skills</h2>
         <div className="skills-grid">
           <div className="skill-card">
-            <div className="skill-icon">
-              <img src={frontend} alt="Frontend" />
-            </div>
+            <img
+              src={frontend}
+              alt="Frontend Development"
+              className="skill-icon"
+            />
             <h3>Frontend Development</h3>
             <p>React, Next.js, JavaScript, TypeScript</p>
           </div>
           <div className="skill-card">
-            <div className="skill-icon">
-              <img src={backend} alt="Backend" />
-            </div>
+            <img
+              src={backend}
+              alt="Backend Development"
+              className="skill-icon"
+            />
             <h3>Backend Development</h3>
             <p>Java, Spring Boot, Python, Node.js</p>
           </div>
           <div className="skill-card">
-            <div className="skill-icon">
-              <img src={database} alt="Database" />
-            </div>
+            <img src={database} alt="Database & Cloud" className="skill-icon" />
             <h3>Database & Cloud</h3>
             <p>MySQL, MongoDB, AWS, Azure</p>
           </div>
@@ -150,7 +166,11 @@ function Home() {
         <h2>Featured Projects</h2>
         <div className="projects-grid">
           <div className="project-card">
-            <img src={ecom} alt="Project 1" className="project-image" />
+            <img
+              src={ecom}
+              alt="E-Commerce Platform"
+              className="project-image"
+            />
             <div className="project-content">
               <h3>E-Commerce Platform</h3>
               <p>
@@ -164,7 +184,11 @@ function Home() {
             </div>
           </div>
           <div className="project-card">
-            <img src={task} alt="Project 2" className="project-image" />
+            <img
+              src={task}
+              alt="Task Management System"
+              className="project-image"
+            />
             <div className="project-content">
               <h3>Task Management System</h3>
               <p>Efficient task tracking and team collaboration platform</p>

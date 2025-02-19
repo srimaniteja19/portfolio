@@ -15,24 +15,13 @@ import Footer from "./components/Footer";
 import Canvas from "./pages/Canvas";
 import ThemeToggle from "./components/ThemeToggle";
 import ParticleBackground from "./components/ParticleBackground";
-import PageTransition from "./components/PageTransition";
 
 // Wrap routes with transition
 function AnimatedRoutes() {
   const location = useLocation();
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-    return () => clearTimeout(timer);
-  }, [location]);
 
   return (
     <>
-      <PageTransition isLoading={isLoading} />
       <Routes location={location}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
